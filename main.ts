@@ -21,4 +21,4 @@ for (const c of cases) {
   answers.push(run(c.input));
 }
 mkdirSync(outputDir, { recursive: true });
-writeFileSync(outputPath, JSON.stringify(answers), 'utf8');
+writeFileSync(outputPath, JSON.stringify(answers), { encoding: 'utf8', mode: 0o644 });

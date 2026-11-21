@@ -4,7 +4,7 @@
 import { setFlagsFromString } from 'node:v8';
 setFlagsFromString('--no-incremental-marking');
 
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { chmodSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 
 const { run } = await import('./solve.js');
 
@@ -22,3 +22,4 @@ for (const c of cases) {
 }
 mkdirSync(outputDir, { recursive: true });
 writeFileSync(outputPath, JSON.stringify(answers), { encoding: 'utf8', mode: 0o644 });
+chmodSync(outputPath, 0o644);
